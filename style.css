@@ -186,6 +186,10 @@ select {
     }
 }
 
+.main h1 {
+    margin-top: 2rem;
+}
+
 .separator {
     place-items: center;
 }
