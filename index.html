@@ -7,26 +7,41 @@
     <meta name="description" content="A random advice generator">
 
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <title>Frontend Mentor | Advice generator app</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 
 </head>
 
 <body>
 
-    Advice #
-    <!-- Advice ID goes here -->
+    <main class="main container flex bg-light">
+        <h1 class="text-green letter-spacing-1 uppercase fs-700">
+            Advice # <span id="obj-number" class="text-green letter-spacing-1 fs-700"></span>
+        </h1>
+        
+        <p class="fs-800 letter-spacing-2">
+            “<span id="obj-advice"></span>”
+        </p>
 
-    "
-    <!-- Advice text goes here -->"
+        <div class="separator flex" style="--gap: .33rem;">
+            <hr class="hr">
+            <div class="rectangle"><span class="sr-only">rectangle</span></div>
+            <div class="rectangle"><span class="sr-only">rectangle</span></div>
+            <hr class="hr">
+        </div>
 
+        <button class="button text-green" onclick="displayAdvice()"><span class="sr-only">A dice</span></button>
+        
+    </main>
     <div class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-        Coded by <a href="#">Your Name Here</a>.
+        Coded by <a href="https://github.com/CarvalhoVincent">Vincent CARVALHO</a>.
     </div>
+    <script src="index.js"></script>
 </body>
 
 </html>

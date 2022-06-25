@@ -1,9 +1,244 @@
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+    /* colors */
+    --clr-lightCyan: 193, 38%, 86%;
+    --clr-green: 150, 100%, 66%;
+    --clr-grayishBlue: 217, 19%, 38%;
+    --clr-darkGrayishBlue: 217, 19%, 24%;
+    --clr-darkBlue: 218, 23%, 16%;
+    
+    /* font-sizes */
+    font-size: 24px;
+    --fs-800: 1rem;
+    --fs-700: 11px;
+}
+
+@media (min-width: 30rem) {
+    :root {
+        --fs-800: 1.16rem;
+        --fs-700: 13px;
+    }
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 800;
+}
+
+/* set up the body */
+body {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    color: hsl( var(--clr-lightCyan) );
+    background-color: hsl( var(--clr-darkBlue) );
+    line-height: 1.33rem;
+    min-height: 100vh;
+    text-align: center;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    overflow-x: hidden;
+}
+
+@media (min-width: 30rem) {
+    body {
+        line-height: 1.6rem;
+    }
+}
+
+/* make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
 
+/* general */
 
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
 
+.container {
+    padding-inline: 1rem;
+    margin-inline: auto;
+    max-width: 13rem;
+    border-radius: 10px;
+}
 
+@media (min-width: 25rem) {
+    .container {
+        max-width: 14.3rem;
+    }
+}
+
+@media (min-width: 30rem) {
+    .container {
+        border-radius: 15px;
+        max-width: 18rem;
+    }
+}
+
+@media (min-width: 40rem) {
+    .container {
+        max-width: 22.5rem;
+    }
+}
+
+.sr-only {
+  position: absolute; 
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px; 
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* colors */
+
+.bg-light { background-color: hsl( var(--clr-darkGrayishBlue) );}
+
+.text-green { color: hsl( var(--clr-green) );}
+
+/* typography */
+.fs-700 { font-size: var(--fs-700);}
+.fs-800 { font-size: var(--fs-800);}
+
+.letter-spacing-1 { letter-spacing: 4.09px; } 
+.letter-spacing-2 { letter-spacing: -0.3px; } 
+
+.uppercase { text-transform: uppercase; }
 
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+/* layout */
+
+.main {
+    margin-top: 5rem;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width:30rem) {
+    .main {
+        margin-top: 9.3rem;
+    }
+}
+
+.separator {
+    place-items: center;
+}
+
+.rectangle {
+    background-color: hsl( var(--clr-lightCyan) );
+    max-width: .25rem;
+    height: 16px;
+    aspect-ratio: 2 / 1;
+    border-radius: 3px;
+}
+
+.hr {
+    border-color: hsl( var(--clr-grayishBlue) );
+    width: 7.6rem;
+}
+
+.button {
+    position: relative;
+    background-color: hsl( var(--clr-green) );
+    border: none;
+    width: 64px;
+    aspect-ratio: 1;
+    align-self: center;
+    border-radius: 50%;
+    top: 1.33rem;
+    background-image: url(./assets/icon-dice.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 10;
+    display: inline-grid;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: hsl( var(--clr-green) );
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 500ms linear, filter ease, transform 500ms ease-in-out;
+}
+
+.button:hover::after {
+    opacity: .2;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    transform: scale(1.5);
+}
+
+.attribution {
+    align-self: end;
+}
